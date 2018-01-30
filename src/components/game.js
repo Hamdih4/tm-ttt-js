@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Square from './square';
+import CPU from './cpu';
 
 const TURNS = ['X', 'O'];
 
@@ -18,6 +19,7 @@ export default class Game extends Component {
   init() {
     this.matrix = Array(9).fill(null);
     this.winner = null;
+    this.isOver = false;
   }
 
   reset() {
@@ -41,6 +43,30 @@ export default class Game extends Component {
         matrix: this.matrix,
         turn: this.state.turn === TURNS[0] ? TURNS[1] : TURNS[0],
       });
+    }
+  }
+
+  onSinglePlayerSquareClick(index) {
+    if (this.winner || this.isOver) {
+      return;
+    }
+
+    if (this.matrix[index] === null) {
+        this.matrix[index] = TURNS[0];
+
+        let cpuIndex = CPU.getEasyModeMove(this.matrix);
+
+        if (cpuIndex === -1) {
+          this.isOver = true;
+        } else {
+          this.matrix[cpuIndex] = TURNS[1];  
+        }
+
+        this.setState({
+          matrix: this.matrix,
+          turn: TURNS[0]
+        });
+        console.log(this.state.matrix);
     }
   }
 
@@ -74,18 +100,26 @@ export default class Game extends Component {
   }
 
   renderSquare(index) {
+    
+    if (this.props.players === 1) {
+      return <Square 
+        onClick={ () => this.onSquareClick(index) }
+        value={ this.state.matrix[index] }/>
+    }
+
     return <Square 
-      onClick={ () => this.onSquareClick(index) }
+      onClick={ () => this.onSinglePlayerSquareClick(index) }
       value={ this.state.matrix[index] }/>
   }
 
   render() {
+    let status = 'Player: ' + this.state.turn;
+
     return (
       <div className="status">
         <div className="turn">
-          { this.isSolved() ? 
-            'Winner: ' + this.winner 
-            : 'Player: ' + this.state.turn } 
+          <div>{ this.isSolved() ? 'Winner: ' + this.winner : status }</div>
+          <div>{ this.isOver ? 'Game Over' : '' }</div>
         </div>
 
         <div className="board">

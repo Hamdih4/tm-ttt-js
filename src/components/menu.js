@@ -6,19 +6,22 @@ export default class Menu extends Component {
     super(props);
 
     this.state = {
-      nav: true
+      nav: true,
+      players: null
     }
   }
 
   singlePlayerHandler() {
     this.setState({
-      nav: false
+      nav: false,
+      players: 1
     });
   }
 
   twoPlayersHandler() {
     this.setState({
-      nav: false
+      nav: false,
+      players: 2
     });
   }
 
@@ -52,7 +55,8 @@ export default class Menu extends Component {
           <div className="game-intro">
             To get started, click on one of the squares below:
           </div>
-            <Game 
+            <Game
+              players={ this.state.players }
               exitGame={() => this.exitGame() }
             />
          </div>
