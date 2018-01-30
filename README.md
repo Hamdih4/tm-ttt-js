@@ -21,3 +21,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Supported Browsers
 
 By default, the generated project uses the latest version of React.
+
+## Check the online version on Heroku
+
+Go to the below link to directly play the game without the need of cloning it from the repository and building locally.
+
+[https://tm-ttt-js.herokuapp.com/](https://tm-ttt-js.herokuapp.com/)
+
+## Coming up features:
+
+### Game difficulty mode from the menu: Easy and Hard
+### Unit tests and UI functional tests
