@@ -66,7 +66,6 @@ export default class Game extends Component {
           matrix: this.matrix,
           turn: TURNS[0]
         });
-        console.log(this.state.matrix);
     }
   }
 
