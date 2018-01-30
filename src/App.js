@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './components/components.css';
+import Game from './components/game'
 
 class App extends Component {
   render() {
@@ -11,8 +13,10 @@ class App extends Component {
           <h1 className="App-title">Tic-Tac-Toe Game</h1>
         </header>
         <p className="App-intro">
-          To get started, select one of the options below:
+          To get started, click on one of the squares below:
         </p>
+
+        <Game />
       </div>
     );
   }

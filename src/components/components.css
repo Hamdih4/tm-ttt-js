@@ -1,0 +1,54 @@
+.square {
+	width: 64px;
+  height: 64px;
+
+  background-color: #FFF;
+  border: #AE5109 thin solid;
+
+  margin-top: -4px;
+  margin-left: -4px;
+
+  vertical-align: middle;
+
+  text-align: center;
+  font-weight: bold;
+
+  outline: none;
+
+  color: #E36E14;
+  font-size: 32px;
+  line-height: 0;
+  letter-spacing: 0;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.board {
+  margin: 10px;
+}
+
+.turn,
+.score {
+  color: #E36E14;
+}
+
+.restart-btn {
+  background-color: #E36E14;
+
+  color: #FFF;
+  font-size: 16px;
+
+  border: #AE5109 thin solid;
+  border-radius: 25px;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.restart-btn:active {
+  background-color: #FFF;
+
+  color: #E36E14;
+}
