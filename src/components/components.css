@@ -33,7 +33,7 @@
   color: #E36E14;
 }
 
-.restart-btn {
+.menu-btn {
   background-color: #E36E14;
 
   color: #FFF;
@@ -42,12 +42,22 @@
   border: #AE5109 thin solid;
   border-radius: 25px;
 
+  margin: 10px 0;
+
   outline: none;
   cursor: pointer;
 }
 
-.restart-btn:active {
+.menu-btn:active {
   background-color: #FFF;
 
   color: #E36E14;
 }
+
+.game-intro {
+  font-size: large;
+  color: #E36E14;
+
+  margin: 20px 0;
+}
+

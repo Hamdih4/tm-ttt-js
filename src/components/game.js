@@ -8,16 +8,25 @@ export default class Game extends Component {
     super(props);
 
     this.init();
-  }
-
-  init() {
-    this.matrix = Array(9).fill(null);
-    this.winner = null;
 
     this.state = {
       turn: TURNS[0],
       matrix: this.matrix
     };
+  }
+
+  init() {
+    this.matrix = Array(9).fill(null);
+    this.winner = null;
+  }
+
+  reset() {
+    this.init();
+
+    this.setState({
+      turn: TURNS[0],
+      matrix: this.matrix
+    });
   }
 
   onSquareClick(index) {
@@ -97,9 +106,15 @@ export default class Game extends Component {
           </div>
         </div>
         <button
-          onClick={ () => this.init() }
-          className="restart-btn">
-          Start Over
+          onClick={ () => this.reset() }
+          className="menu-btn">
+          Reset
+        </button>
+        &nbsp;
+        <button
+          onClick={ this.props.exitGame }
+          className="menu-btn">
+          Exit
         </button>
       </div>
     );
