@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './components/components.css';
-import Game from './components/game'
+import Menu from './components/menu'
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
           To get started, click on one of the squares below:
         </p>
 
-        <Game />
+        <Menu />
       </div>
     );
   }
